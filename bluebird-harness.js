@@ -1,4 +1,5 @@
-;(function(root) {
+;
+(function (root) {
 	'use strict';
 
 	var previous_module,
@@ -8,20 +9,18 @@
 		previous_module = root.harness
 	}
 
-	// Node.js
 	if (typeof module !== 'undefined' && module.exports) {
+		// Node.js
 		Promise = require('bluebird')
 		module.exports = Harness
-	}
-	// AMD / RequireJS
-	else if (typeof define !== 'undefined' && define.amd) {
+	} else if (typeof define !== 'undefined' && define.amd) {
+		// AMD / RequireJS
 		Promise = root.Promise
 		define([], function () {
 			return Harness
 		})
-	}
-	// <script> tag
-	else {
+	} else {
+		// <script> tag
 		Promise = root.Promise
 		root.harness = Harness
 	}
