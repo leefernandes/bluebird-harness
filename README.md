@@ -13,7 +13,7 @@ harness({
   interval: 1000,
   // increasing interval by 1s per successive attempt
   backoff: 1000,
-  // timeout getStuff if executes longer than 1s
+  // timeout wrapped method if executes longer than 1s
   timeout: 1000,
   // log attempt details to console
   debug: true
