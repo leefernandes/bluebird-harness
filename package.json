@@ -1,0 +1,33 @@
+{
+  "name": "bluebird-harness",
+  "version": "1.0.0",
+  "description": "Retry, backoff, timeout library for harnessing promises.",
+  "main": "harness.js",
+	"keywords": ["bluebird", "retry", "backoff", "timeout", "bluebird-harness", "promise-retry", "promises", "laicos"],
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leefernandes/harness.git"
+  },
+  "author": {
+		"name": "Lee Fernandes",
+		"email": "lee@laicos.com",
+		"url": "https://github.com/leefernandes/"
+	},
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/leefernandes/harness/issues"
+  },
+  "homepage": "https://github.com/leefernandes/harness",
+  "dependencies": {
+    "bluebird": "^2.9.14"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-rename": "^1.2.0",
+    "gulp-uglify": "^1.1.0",
+    "mocha": "^2.2.1"
+  }
+}
