@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/laicosly/bluebird-harness",
   "dependencies": {
-    "bluebird": "^2.9.14"
+    "bluebird": "^3.3.4"
   },
   "devDependencies": {
     "gulp": "^3.8.11",
