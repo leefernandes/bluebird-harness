@@ -83,7 +83,7 @@
 								}
 								var time_interval
 								if (typeof interval === 'function') {
-  								time_interval = interval()
+  								time_interval = interval( count, options )
 								} else {
 									time_interval = interval
 								}
