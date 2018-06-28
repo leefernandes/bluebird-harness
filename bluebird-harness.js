@@ -1,3 +1,4 @@
+
 ;
 (function (root) {
 	'use strict';
@@ -12,6 +13,7 @@
 	if (typeof module !== 'undefined' && module.exports) {
 		// Node.js
 		Promise = require('bluebird')
+
 		module.exports = Harness
 	} else if (typeof define !== 'undefined' && define.amd) {
 		// AMD / RequireJS
@@ -24,6 +26,8 @@
 		Promise = root.Promise
 		root.harness = Harness
 	}
+
+	Promise.config( { cancellation: true} )
 
 	Harness.noConflict = function () {
 		root.harness = previous_module
@@ -67,7 +71,6 @@
 							? f.apply(f, args)
 							: f()
 						promise
-							.cancellable()
 							.timeout(timeout)
 							.then(resolver.resolve.bind(resolver))
 							.catch(Promise.CancellationError, function (err) {
@@ -78,8 +81,14 @@
 									resolver.reject(err)
 									return
 								}
-								var wait = interval && count > 1
-									? interval + ((count - 1) * backoff)
+								var time_interval
+								if (typeof interval === 'function') {
+  								time_interval = interval( count, options )
+								} else {
+									time_interval = interval
+								}
+								var wait = time_interval && count > 1
+									? time_interval + ((count - 1) * backoff)
 									: 0
 								if (options.debug)
 									console.log('   ', err, 'retry in:', wait + 'ms')
